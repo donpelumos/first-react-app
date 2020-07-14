@@ -27,21 +27,23 @@ class CounterList extends Component {
   }
 
   performReset = () => {
-    for (let i = 0; i < this.state.counters.length; i++) {
-      this.state.counters[i].value = 0;
+    let counters = this.state.counters;
+    for (let i = 0; i < counters.length; i++) {
+      counters[i].value = 0;
     }
-    this.setState({ counters: this.state.counters });
+    this.setState({ counters: counters });
   };
 
   incrementCounter = (counterId) => {
     console.log("increment called for counter - " + counterId);
-    for (let i = 0; i < this.state.counters.length; i++) {
-      if (this.state.counters[i].id == counterId) {
-        this.state.counters[i].value++;
+    let counters = this.state.counters;
+    for (let i = 0; i < counters.length; i++) {
+      if (counters[i].id == counterId) {
+        counters[i].value++;
         break;
       }
     }
-    this.setState({ counters: this.state.counters });
+    this.setState({ counters: counters });
   };
 
   deleteCounter = (counterId) => {

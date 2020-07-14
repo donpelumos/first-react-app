@@ -3,7 +3,27 @@ import React, { Component } from "react";
 class Counter extends Component {
   state = {};
 
+  constructor() {
+    super();
+    console.log("App Constructor");
+  }
+
+  componentDidMount() {
+    console.log("Component Mounted");
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log("Component Updated");
+    console.log(prevProps);
+    console.log(prevState);
+  }
+
+  componentWillUnmount() {
+    console.log("Component Unmounted");
+  }
+
   render() {
+    console.log("Component Rendered");
     return (
       <div>
         <h1>Click Count : </h1>
