@@ -1,9 +1,7 @@
 import React, { Component } from "react";
 
 class Counter extends Component {
-  state = {
-    count: this.props.value,
-  };
+  state = {};
 
   render() {
     return (
@@ -13,7 +11,7 @@ class Counter extends Component {
         <br />
         <button
           onClick={() => {
-            this.handleButtonClick("pelumi");
+            this.props.onIncrease(this.props.id);
           }}
           className="btn btn-primary m-2"
         >
@@ -32,18 +30,24 @@ class Counter extends Component {
   }
 
   showCustomCount() {
-    let { count } = this.state;
-    return count == 0 ? (
-      <span style={{ color: "white", background: "red" }}>{count}</span>
+    return this.props.value == 0 ? (
+      <span className="m-2" style={{ color: "white", background: "red" }}>
+        {this.props.value}
+      </span>
     ) : (
-      <span style={{ color: "white", background: "blue" }}>{count}</span>
+      <span className="m-2" style={{ color: "white", background: "blue" }}>
+        {this.props.value}
+      </span>
     );
   }
 
-  handleButtonClick = (arg) => {
-    console.log(arg);
-    this.setState({ count: this.state.count + 1 });
+  /*
+  handleButtonClick = (counterId) => {
+    console.log(counterId);
+    this.props.value = this.props.value + 1;
+    //this.setState({ count: this.props.value + 1 });
   };
+  */
 }
 
 export default Counter;

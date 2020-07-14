@@ -12,24 +12,44 @@ class CounterList extends Component {
   render() {
     return (
       <React.Fragment>
+        <button onClick={this.performReset}>RESET</button>
         {this.state.counters.map((counter) => (
           <Counter
             key={counter.id}
             value={counter.value}
             id={counter.id}
             onDelete={this.deleteCounter}
+            onIncrease={this.incrementCounter}
           />
         ))}
       </React.Fragment>
     );
   }
 
+  performReset = () => {
+    for (let i = 0; i < this.state.counters.length; i++) {
+      this.state.counters[i].value = 0;
+    }
+    this.setState({ counters: this.state.counters });
+  };
+
+  incrementCounter = (counterId) => {
+    console.log("increment called for counter - " + counterId);
+    for (let i = 0; i < this.state.counters.length; i++) {
+      if (this.state.counters[i].id == counterId) {
+        this.state.counters[i].value++;
+        break;
+      }
+    }
+    this.setState({ counters: this.state.counters });
+  };
+
   deleteCounter = (counterId) => {
     console.log("Delete counter called - " + counterId);
-    let counters = this.state.counters.filter(
+    let newCounters = this.state.counters.filter(
       (counter) => counter.id !== counterId
     );
-    this.setState({ counters: counters });
+    this.setState({ counters: newCounters });
   };
 }
 
