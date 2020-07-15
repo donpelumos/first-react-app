@@ -25,7 +25,7 @@ class Counter extends Component {
   render() {
     console.log("Component Rendered");
     return (
-      <div>
+      <div style={{ margin: "20px" }}>
         <h1>Click Count : </h1>
         <span>{this.showCustomCount()}</span>
         <br />
@@ -51,11 +51,11 @@ class Counter extends Component {
 
   showCustomCount() {
     return this.props.value == 0 ? (
-      <span className="m-2" style={{ color: "white", background: "red" }}>
+      <span className="m-20" style={{ color: "white", background: "red" }}>
         {this.props.value}
       </span>
     ) : (
-      <span className="m-2" style={{ color: "white", background: "blue" }}>
+      <span className="m-20" style={{ color: "white", background: "blue" }}>
         {this.props.value}
       </span>
     );

@@ -4,11 +4,11 @@ import "./index.css";
 import App from "./App";
 import "bootstrap/dist/css/bootstrap.css";
 import * as serviceWorker from "./serviceWorker";
-import CounterList from "./components/CounterListComponent";
+import RootComponent from "./components/RootComponent";
 
 ReactDOM.render(
   <React.StrictMode>
-    <CounterList />
+    <RootComponent />
   </React.StrictMode>,
   document.getElementById("root")
 );
