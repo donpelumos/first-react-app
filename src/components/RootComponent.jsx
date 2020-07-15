@@ -1,6 +1,8 @@
 import React, { Component } from "react";
 import NavbarComponent from "./NavbarComponent";
 import CounterListComponent from "./CounterListComponent";
+import { Route, Switch, Link } from "react-router-dom";
+import App from "./../App";
 
 class RootComponent extends Component {
   state = {
@@ -13,18 +15,31 @@ class RootComponent extends Component {
   render() {
     return (
       <React.Fragment>
-        <NavbarComponent
-          componentCount={
-            this.state.counters.filter((counter) => counter.value > 0).length
-          }
-        />
-        <CounterListComponent
-          counters={this.state.counters}
-          onReset={this.performReset}
-          onIncrement={this.incrementCounter}
-          onDecrement={this.decrementCounter}
-          onDelete={this.deleteCounter}
-        />
+        <Switch>
+          <Route path="/app" component={App} />
+          <Route
+            path="/"
+            render={() => (
+              <div>
+                <NavbarComponent
+                  componentCount={
+                    this.state.counters.filter((counter) => counter.value > 0)
+                      .length
+                  }
+                />
+                <Link to="/app">React Default Page Link</Link>
+                <br />
+                <CounterListComponent
+                  counters={this.state.counters}
+                  onReset={this.performReset}
+                  onIncrement={this.incrementCounter}
+                  onDecrement={this.decrementCounter}
+                  onDelete={this.deleteCounter}
+                />
+              </div>
+            )}
+          />
+        </Switch>
       </React.Fragment>
     );
   }

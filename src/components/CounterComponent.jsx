@@ -18,7 +18,7 @@ class Counter extends Component {
     console.log(prevState);
   }
 
-  componentWillUnmount() {
+  UNSAFE_componentWillUnmount() {
     console.log("Component Unmounted");
   }
 
