@@ -2,10 +2,9 @@ import React, { Component } from "react";
 
 class NavbarComponent extends Component {
   state = {};
-  constructor(props) {
-    super(props);
-  }
+
   render() {
+    const componentCount = this.props.componentCount;
     return (
       <nav className="navbar navbar-light bg-light">
         <a className="navbar-brand" href="#">
@@ -14,7 +13,7 @@ class NavbarComponent extends Component {
             className="badge badge-pill badge-secondary"
             style={{ marginLeft: "10px" }}
           >
-            {this.props.componentCount}
+            {componentCount}
           </span>
         </a>
       </nav>

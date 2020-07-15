@@ -35,7 +35,16 @@ class Counter extends Component {
           }}
           className="btn btn-primary m-2"
         >
-          click me
+          +
+        </button>
+        <button
+          onClick={() => {
+            this.props.onDecrease(this.props.id);
+          }}
+          className="btn btn-secondary m-2"
+          disabled={this.props.value < 1}
+        >
+          -
         </button>
         <button
           onClick={() => {
@@ -43,7 +52,7 @@ class Counter extends Component {
           }}
           className="btn btn-primary btn-danger m-2"
         >
-          Delete Button
+          x
         </button>
       </div>
     );

@@ -22,6 +22,7 @@ class RootComponent extends Component {
           counters={this.state.counters}
           onReset={this.performReset}
           onIncrement={this.incrementCounter}
+          onDecrement={this.decrementCounter}
           onDelete={this.deleteCounter}
         />
       </React.Fragment>
@@ -42,6 +43,18 @@ class RootComponent extends Component {
     for (let i = 0; i < counters.length; i++) {
       if (counters[i].id == counterId) {
         counters[i].value++;
+        break;
+      }
+    }
+    this.setState({ counters: counters });
+  };
+
+  decrementCounter = (counterId) => {
+    console.log("increment called for counter - " + counterId);
+    let counters = this.state.counters;
+    for (let i = 0; i < counters.length; i++) {
+      if (counters[i].id == counterId && counters[i].value > 0) {
+        counters[i].value--;
         break;
       }
     }

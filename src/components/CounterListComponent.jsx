@@ -20,6 +20,7 @@ class CounterListComponent extends Component {
             id={counter.id}
             onDelete={() => this.props.onDelete(counter.id)}
             onIncrease={() => this.props.onIncrement(counter.id)}
+            onDecrease={() => this.props.onDecrement(counter.id)}
           />
         ))}
       </React.Fragment>
