@@ -19,7 +19,7 @@ class RootComponent extends Component {
           <Route path="/app" component={App} />
           <Route
             path="/"
-            render={() => (
+            render={(props) => (
               <div>
                 <NavbarComponent
                   componentCount={
@@ -35,6 +35,7 @@ class RootComponent extends Component {
                   onIncrement={this.incrementCounter}
                   onDecrement={this.decrementCounter}
                   onDelete={this.deleteCounter}
+                  {...props}
                 />
               </div>
             )}
